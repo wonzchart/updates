@@ -1,10 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>WONZCHART</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WONZCHART</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      font-family:'Outfit',sans-serif;
+      background:#fff8fb;
+    }
+
+    .search-box{
+      transition:.2s;
+    }
+
+    .search-box:focus{
+      outline:none;
+      transform:translateY(-2px);
+      box-shadow:0 10px 30px rgba(255,148,191,.2);
+    }
+  </style>
 </head>
+
 <body>
-    <h1>welcome 🪽</h1>
-    <p>track your orders here!</p>
+
+<div class="min-h-screen flex flex-col items-center justify-center px-6">
+
+    <h1 class="text-5xl font-bold text-pink-500">
+        WONZCHART
+    </h1>
+
+    <p class="text-gray-500 mt-2">
+        track your orders ♡
+    </p>
+
+    <div class="w-full max-w-md mt-10">
+
+        <input
+        id="username"
+        class="search-box w-full rounded-2xl border border-pink-200 p-4 text-lg"
+        placeholder="@username">
+
+        <button
+        onclick="searchOrder()"
+        class="mt-5 w-full rounded-2xl bg-pink-400 text-white py-4 font-semibold hover:bg-pink-500">
+
+        Search
+
+        </button>
+
+    </div>
+
+    <div id="results" class="mt-12 w-full max-w-md"></div>
+
+</div>
+
+<script>
+
+function searchOrder(){
+
+const username=document.getElementById("username").value;
+
+document.getElementById("results").innerHTML=`
+<div class="bg-white rounded-3xl shadow-lg p-6">
+
+<h2 class="font-bold text-xl">${username}</h2>
+
+<div class="mt-5">
+
+<p><b>GO</b><br>BOYNEXTDOOR HOME PHOTOBOOK</p>
+
+<p class="mt-3"><b>Item</b><br>POB (3) Keyring (2)</p>
+
+<p class="mt-3"><b>Total</b><br>RM23</p>
+
+<p class="mt-3"><b>Status</b><br>
+<span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full">
+Ready to Checkout
+</span>
+
+</p>
+
+</div>
+
+</div>
+`;
+
+}
+
+</script>
+
 </body>
 </html>
